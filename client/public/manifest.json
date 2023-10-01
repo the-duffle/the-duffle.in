@@ -1,0 +1,14 @@
+{
+  "name": "theduffle.in",
+  "description": "Open your go to tabs in One Tap",
+  "version": "1.0",
+  "manifest_version": 3,
+  "action": {
+    "default_title": "My Apps",
+    "default_popup": "index.html",
+    "default_icon": {
+      "16": "logo192.png",
+      "128": "logo192.png"
+    }
+  }
+}
