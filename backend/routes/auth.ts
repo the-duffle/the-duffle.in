@@ -5,7 +5,7 @@ const express = require("express");
 
 const router = express.Router();
 
-router.get("/details",authenticate ,userDetails)
+router.get("/details", authenticate, userDetails)
 router.post("/register", register);
 router.post("/login", login)
 
