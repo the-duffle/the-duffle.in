@@ -1,10 +1,15 @@
-const mongoose = require("mongoose");
+import mongoose from "mongoose";
 
-const ProductSchema = mongoose.Schema(
+const LinkSchema = new mongoose.Schema(
     {
-        link:{
-            type:String,
-            required:"true"
+        link: {
+            type: String,
+            required: true
+        },
+        authorId: {
+            type: mongoose.Types.ObjectId,
+            ref: "User",
+            required: true,
         }
     },
     {
@@ -12,5 +17,5 @@ const ProductSchema = mongoose.Schema(
     }
 );
 
-const Product = mongoose.model("products", ProductSchema);
-module.exports = Product;
+const Link = mongoose.model("links", LinkSchema);
+export default Link

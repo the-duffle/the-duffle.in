@@ -3,18 +3,19 @@ import cors from "cors";
 import { connectToMongo } from "./db";
 import dotenv from "dotenv";
 
+const authRoutes = require("./routes/auth");
+const linkRoutes = require("./routes/link")
 
 const app = express();
 dotenv.config()
 app.use(express.json());
 connectToMongo();
 
-app.get("/", async (req: Request, res: Response) => {
-    res.send("Hello World New!")
-})
+app.use("/auth", authRoutes);
+app.use("/link", linkRoutes);
 
 
-const port=3550;
+const port = 3550;
 app.listen(port, () => {
     console.log(
         `server running on port ${port}`
