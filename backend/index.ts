@@ -5,6 +5,7 @@ import dotenv from "dotenv";
 
 import authRoutes from "./routes/auth"
 import linkRoutes from "./routes/link"
+import workSpaceRoutes from "./routes/workspace"
 
 const app = express();
 dotenv.config()
@@ -13,6 +14,7 @@ connectToMongo();
 
 app.use("/auth", authRoutes);
 app.use("/link", linkRoutes);
+app.use("/wos", workSpaceRoutes);
 
 
 const port = 3550;

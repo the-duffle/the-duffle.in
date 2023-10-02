@@ -1,4 +1,4 @@
-import mongoose, { mongo } from "mongoose";
+import mongoose from "mongoose";
 
 const FolderSchema = new mongoose.Schema({
     title: { type: String, required: true }, // Folder name
@@ -12,7 +12,10 @@ const FolderSchema = new mongoose.Schema({
                 type: mongoose.Types.ObjectId,
                 ref: "Link",
             },
-            linkAddress: String,
+            linkAddress: {
+                type: String,
+                required: true
+            },
         }
     ]
 
