@@ -7,7 +7,7 @@ const jwtsecret = process.env.SECRET_KEY;
 
 export async function register(req: Request, res: Response) {
     try {
-        const { name, email, password } = req.body;
+        const { name, email, password, country } = req.body;
 
         const findUser = await User.findOne({ email });
         if (findUser) {
@@ -20,6 +20,7 @@ export async function register(req: Request, res: Response) {
             name,
             email,
             password: passwordHash,
+            country
         });
         await newUser.save();
 

@@ -17,6 +17,10 @@ const UserSchema = new mongoose.Schema(
             required: true,
             min: 6,
         },
+        country: {
+            type: String,
+            default: "anonymous"
+        },
         links: [
             {
                 type: mongoose.Types.ObjectId,

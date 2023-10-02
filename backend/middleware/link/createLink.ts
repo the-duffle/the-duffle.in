@@ -25,7 +25,6 @@ export async function createLink(req: Request, res: Response, next: NextFunction
             throw error
         }
 
-
     } catch (error) {
         return res.status(202).json({ message: error })
     }

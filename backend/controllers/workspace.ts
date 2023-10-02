@@ -56,3 +56,22 @@ export async function addLinkToWorkSpace(req: Request, res: Response) {
         return res.status(500).json({ message: error })
     }
 }
+
+export async function removeLinkFromWorkSpace(req: Request, res: Response) {
+    try {
+        const linkId = req.header("linkId");
+        console.log(linkId)
+        if (!linkId) return res.json({ message: "No Link" })
+        const { woId } = req.params;
+
+        const result = await WorkSpace.updateOne(
+            { _id: woId },
+            { $pull: { links: { linkId } } }
+        );
+
+        return res.json({ message: "Link removed from workSpace succesfully ", result })
+
+    } catch (error) {
+        return res.status(500).json({ message: error })
+    }
+}

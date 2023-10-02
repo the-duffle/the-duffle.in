@@ -4,6 +4,7 @@ import User from "../models/User";
 import Link from "../models/Link";
 import mongoose from "mongoose";
 
+
 export async function createFolder(req: Request, res: Response) {
     try {
         const { title } = req.body;
@@ -52,6 +53,29 @@ export async function addLinkToFolder(req: Request, res: Response) {
         );
 
         return res.json({ message: "Link added to folder succesfully ", result })
+
+        // const UpdateFolder = await Folder.findById(folderId);
+        // console.log(UpdateFolder)
+    } catch (error) {
+        return res.status(500).json({ message: error })
+    }
+}
+export async function removeLinkFromFolder(req: Request, res: Response) {
+    try {
+        const linkId = req.header("linkId");
+        console.log(linkId)
+        if (!linkId) return res.json({ message: "No Link" })
+        const { folderId } = req.params;
+
+        const links = await Link.findById(linkId);
+        if (!links) return res.json({ message: "No Link" })
+
+        const result = await Folder.updateOne(
+            { _id: folderId },
+            { $pull: { links: { linkId } } }
+        );
+
+        return res.json({ message: "Link removed from folder succesfully ", result })
 
         // const UpdateFolder = await Folder.findById(folderId);
         // console.log(UpdateFolder)
