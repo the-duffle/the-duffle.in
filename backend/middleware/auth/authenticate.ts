@@ -8,7 +8,8 @@ export async function authenticate(req: Request, res: Response, next: NextFuncti
             if (token.startsWith("Bearer ")) token = token.split(" ")[1];
 
             const verified = jwt.verify(token, process.env.SECRET_KEY);
-            req.headers["userId"] = verified.id;
+  
+            req.headers["userEmail"] = verified.email;
             next();
         } else {
             res.status(202).json({ mesasage: "Acess Denied" });
@@ -17,4 +18,3 @@ export async function authenticate(req: Request, res: Response, next: NextFuncti
         res.status(500).json({ message: error });
     }
 }
-console.log("working");

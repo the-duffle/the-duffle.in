@@ -3,8 +3,8 @@ import cors from "cors";
 import { connectToMongo } from "./db";
 import dotenv from "dotenv";
 
-const authRoutes = require("./routes/auth");
-const linkRoutes = require("./routes/link")
+import authRoutes from "./routes/auth"
+import linkRoutes from "./routes/link"
 
 const app = express();
 dotenv.config()

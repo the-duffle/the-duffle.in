@@ -1,10 +1,12 @@
-import { createFolder } from "../controllers/link";
-import { authenticate } from "../middleware/authenticate";
+import { addLinkToFolder, createFolder } from "../controllers/link";
+import { authenticate } from "../middleware/auth/authenticate";
+import { createLink } from "../middleware/link/createLink";
 
 const express = require("express");
 
 const router = express.Router();
 
-router.post("/createlink", authenticate, createFolder);
+router.post("/createfolder", authenticate, createFolder);
+router.put("/createlink/:folderId", authenticate, createLink, addLinkToFolder);
 
-module.exports = router;
+export default router;
