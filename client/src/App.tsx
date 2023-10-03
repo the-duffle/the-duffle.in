@@ -1,10 +1,14 @@
-import './App.css';
+import "./App.css";
+import { BrowserRouter, Routes, Route } from "react-router-dom";
+import { Home } from "./containers/Home/Index";
+import AppSection from "./containers/Main/Index";
 
 function App() {
   return (
-    <div className="h-[550px] w-[400px] bg-black text-white">
-      <h1 className='text-2xl font-mono'>Hello there i am here</h1>
-    </div>
+    <main className="border-2 border-black h-[550px] w-[400px] bg-black text-white">
+      <AppSection />
+      <Home />
+    </main>
   );
 }
 

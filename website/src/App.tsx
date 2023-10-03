@@ -1,10 +1,15 @@
 import './App.css';
+import { BrowserRouter, Routes, Route } from 'react-router-dom';
+import Navbar from './Components/Navbar/Index';
 
 function App() {
   return (
-    <div className="min-h-screen w-screen bg-rose-700 text-blue-300 text-9xl font-bold font-mono flexCenter">
-     Hello
-    </div>
+    <BrowserRouter>
+
+      <Navbar />
+      <Routes>
+      </Routes>
+    </BrowserRouter>
   );
 }
 

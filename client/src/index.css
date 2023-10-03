@@ -12,3 +12,18 @@ html,body{
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
+
+
+
+.flexCenter{
+  @apply flex justify-center items-center
+}
+.flexBetween{
+  @apply flex justify-between items-center
+}
+.flexStart{
+  @apply flex justify-start items-center
+}
+.flexEnd{
+  @apply flex justify-end items-center
+}
